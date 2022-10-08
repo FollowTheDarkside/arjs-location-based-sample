@@ -48,6 +48,7 @@ AFRAME.registerComponent('modify-materials', {
                         latitude: lat.value,
                         longitude: lon.value
                     });
+                    model.components["gps-entity-place"]._updatePosition();
 
                     model.object3D.position.z += 1;
                 }
