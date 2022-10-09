@@ -35,7 +35,7 @@ window.onload = function() {
         model.setAttribute('gps-entity-place', 'latitude: ${lat}; longitude: ${lon};');
         model.setAttribute('gltf-model', '../resources/LeePerrySmith.glb');
         model.setAttribute('animation-mixer', '');
-        model.setAttribute('scale', '10 10 10');
+        model.setAttribute('scale', '100 100 100');
 
         model.addEventListener('loaded', () => {
             console.log("loaded...")
