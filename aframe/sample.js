@@ -18,6 +18,9 @@ AFRAME.registerComponent('samplehandler', {
 window.onload = function() {
     console.log("window loaded...");
 
+    // Get location info
+    navigator.geolocation.getCurrentPosition(setCurrentPos);
+
     let scene = document.querySelector('a-scene');
     let submitBtn = document.getElementById("submit-btn");
 
@@ -61,3 +64,8 @@ window.onload = function() {
         scene.appendChild(model);
     });
 };
+
+function setCurrentPos(pos) {
+    let textPos = document.getElementById("text-pos");
+    textPos.innerHTML = String(pos.coords.latitude) + ", " + String(pos.coords.longitude);
+}
