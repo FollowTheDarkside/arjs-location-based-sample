@@ -59,6 +59,11 @@ window.onload = function() {
                     }
                 });
             })
+
+            // Display distance to AR content
+            arModel.addEventListener('gps-entity-place-update-positon', (event) => {
+                document.getElementById('text-dist').innerHTML = 'distance: ${event.detail.distance}m';
+            });
         });
 
         scene.appendChild(model);
