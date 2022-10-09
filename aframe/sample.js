@@ -15,48 +15,49 @@ AFRAME.registerComponent('samplehandler', {
     }
 });
 
-AFRAME.registerComponent('modify-materials', {
-    init: function () {
-        let tex = new THREE.TextureLoader().load('../resources/Map-COL.jpg');
-
-        // Wait for model to load.
-        this.el.addEventListener('model-loaded', () => {
-            // Grab the mesh / scene.
-            const obj = this.el.getObject3D('mesh');
-            // Go over the submeshes and modify materials we want.
-            obj.traverse(node => {
-                console.log("node.name:", node.name);
-                if (node.name == "LeePerrySmith") {
-                    // node.material.color.set('red');
-                    node.material.map = tex;
-                }
-            });
-            
-            // When button clicked
-            let scene = document.querySelector("a-scene");
-            let submitBtn = document.getElementById("submit-btn");
-            submitBtn.addEventListener('click', () => {
-                if (scene.hasLoaded){
-                    const lat = document.getElementById('textbox-lat');
-                    const lon = document.getElementById('textbox-lon');
-                    console.log("textbox->(lat, lon):", lat.value, lon.value);
-
-                    const model = document.getElementById("ar-model")
-                    console.log("model->(lat, lon):", model.getAttribute('gps-projected-entity-place'))
-                    //console.log("pos:", model.object3D.position);
-                    model.setAttribute('gps-projected-entity-place', {
-                        latitude: lat.value,
-                        longitude: lon.value
-                    });
-                    model.components["gps-entity-place"]._updatePosition();
-
-                    model.object3D.position.z += 1;
-                }
-            });
-        });
-    }
-});
-
 window.onload = function() {
     console.log("window loaded...");
+
+    let scene = document.querySelector('a-scene');
+    let submitBtn = document.getElementById("submit-btn");
+
+    // Set location based model when button clicked
+    submitBtn.addEventListener('click', () => {
+        console.log("Submitted...")
+
+        const lat = document.getElementById('textbox-lat').value;
+        const lon = document.getElementById('textbox-lon').value;
+        console.log("textbox->(lat, lon):", lat, lon);
+
+        let model = document.createElement('a-entity');
+        model.setAttribute('id', 'ar-model');
+        model.setAttribute('look-at', '[gps-camera]');
+        model.setAttribute('gps-entity-place', 'latitude: ${lat}; longitude: ${lon};');
+        model.setAttribute('gltf-model', '../resources/LeePerrySmith.glb');
+        model.setAttribute('animation-mixer', '');
+        model.setAttribute('scale', '10 10 10');
+
+        model.addEventListener('loaded', () => {
+            console.log("loaded...")
+            // Set custom event for gps-entity-place
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+
+            // Set texture when model loaded
+            let arModel = document.getElementById('ar-model')
+            arModel.addEventListener('model-loaded', () => {
+                console.log("arModel loaded...")
+                let tex = new THREE.TextureLoader().load('../resources/Map-COL.jpg');
+                let obj = arModel.getObject3D('mesh');
+                obj.traverse(node => {
+                    console.log("node.name:", node.name);
+                    if (node.name == "LeePerrySmith") {
+                        // node.material.color.set('red');
+                        node.material.map = tex;
+                    }
+                });
+            })
+        });
+
+        scene.appendChild(model);
+    });
 };

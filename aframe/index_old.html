@@ -19,10 +19,14 @@
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'>
             <a-assets>
+                <!-- <a-asset-item id="model" src="../resources/sample-entity.glb"></a-asset-item> -->
                 <a-asset-item id="model" src="../resources/LeePerrySmith.glb"></a-asset-item>
                 <img id="tex-image" src="../resources/Map-COL.jpg">
             </a-assets>
-            <a-camera id="ar-camera" gps-camera rotation-reader></a-camera>, 
+
+            <a-camera id="ar-camera" gps-projected-camera rotation-reader></a-camera>, 
+            <!-- <a-box id="ar-box" gps-projected-entity-place='latitude: 35.684047117200684; longitude: 139.77453527914273' material='color: red' scale='10 10 10'></a-box> -->
+            <a-entity id="ar-model" modify-materials gltf-model="#model" play-all-model-animations="" rotation="-90 0 0" scale="50 50 50" visible="true" gps-projected-entity-place='latitude: 35.684047117200684; longitude: 139.77453527914273'></a-entity>
         </a-scene>
     </body>
 </html>
