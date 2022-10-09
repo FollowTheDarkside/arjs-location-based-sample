@@ -8,8 +8,8 @@ This repository contains location based ar samples by [Three.js](https://threejs
 <br>
 
 Demo:
-- [Sample by Three.js](https://followthedarkside.github.io/arjs-location-based-sample/three/)
-- ~~[Sample by A-Frame](https://followthedarkside.github.io/arjs-location-based-sample/aframe/)~~
+- ~~[Sample by Three.js](https://followthedarkside.github.io/arjs-location-based-sample/three/)~~
+- [Sample by A-Frame](https://followthedarkside.github.io/arjs-location-based-sample/aframe/)
 
 ## License
 MIT
