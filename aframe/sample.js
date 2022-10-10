@@ -32,43 +32,60 @@ window.onload = function() {
         const lon = document.getElementById('textbox-lon').value;
         console.log("textbox->(lat, lon):", lat, lon);
 
-        let model = document.createElement('a-entity');
-        model.setAttribute('id', 'ar-model');
-        model.setAttribute('look-at', '[gps-camera]');
-        model.setAttribute('gps-entity-place', 'latitude: ${lat}; longitude: ${lon};');
-        model.setAttribute('gltf-model', '../resources/LeePerrySmith.glb');
-        model.setAttribute('animation-mixer', '');
-        model.setAttribute('scale', '100 100 100');
+        // let model = document.createElement('a-entity');
+        // model.setAttribute('id', 'ar-model');
+        // model.setAttribute('look-at', '[gps-camera]');
+        // model.setAttribute('gps-entity-place', 'latitude: ${lat}; longitude: ${lon};');
+        // model.setAttribute('gltf-model', '../resources/LeePerrySmith.glb');
+        // model.setAttribute('animation-mixer', '');
+        // model.setAttribute('scale', '100 100 100');
 
-        model.addEventListener('loaded', () => {
-            console.log("loaded...")
-            // Set custom event for gps-entity-place
+        // model.addEventListener('loaded', () => {
+        //     console.log("loaded...")
+        //     // Set custom event for gps-entity-place
+        //     window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+        //     window.dispatchEvent(new CustomEvent('gps-entity-place-update-positon'))
+
+        //     // Set texture when model loaded
+        //     let arModel = document.getElementById('ar-model')
+        //     arModel.addEventListener('model-loaded', () => {
+        //         console.log("arModel loaded...")
+        //         let tex = new THREE.TextureLoader().load('../resources/Map-COL.jpg');
+        //         let obj = arModel.getObject3D('mesh');
+        //         obj.traverse(node => {
+        //             console.log("node.name:", node.name);
+        //             if (node.name == "LeePerrySmith") {
+        //                 // node.material.color.set('red');
+        //                 node.material.map = tex;
+        //             }
+        //         });
+        //     })
+
+        //     // Display distance to AR content
+        //     arModel.addEventListener('gps-entity-place-update-positon', (event) => {
+        //         console.log("gps-entity-place-update-positon...")
+        //         document.getElementById('text-dist').innerHTML = 'distance: ${event.detail.distance}m';
+        //     });
+        // });
+
+        // scene.appendChild(model);
+
+        let box = document.createElement('a-box');
+        box.setAttribute('id', 'ar-model');
+        box.setAttribute('material', 'color: red');
+        box.setAttribute('gps-entity-place', 'latitude: ${lat}; longitude: ${lon};');
+        box.setAttribute('scale', '150 100 50');
+        box.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-            window.dispatchEvent(new CustomEvent('gps-entity-place-update-positon'))
 
-            // Set texture when model loaded
-            let arModel = document.getElementById('ar-model')
-            arModel.addEventListener('model-loaded', () => {
-                console.log("arModel loaded...")
-                let tex = new THREE.TextureLoader().load('../resources/Map-COL.jpg');
-                let obj = arModel.getObject3D('mesh');
-                obj.traverse(node => {
-                    console.log("node.name:", node.name);
-                    if (node.name == "LeePerrySmith") {
-                        // node.material.color.set('red');
-                        node.material.map = tex;
-                    }
-                });
-            })
-
-            // Display distance to AR content
-            arModel.addEventListener('gps-entity-place-update-positon', (event) => {
-                console.log("gps-entity-place-update-positon...")
-                document.getElementById('text-dist').innerHTML = 'distance: ${event.detail.distance}m';
-            });
+            // // Display distance to AR content
+            // let arModel = document.getElementById('ar-model')
+            // arModel.addEventListener('gps-entity-place-update-positon', (event) => {
+            //     console.log("gps-entity-place-update-positon...")
+            //     document.getElementById('text-dist').innerHTML = 'distance: ${event.detail.distance}m';
+            // });
         });
-
-        scene.appendChild(model);
+        scene.appendChild(box);
     });
 };
 
