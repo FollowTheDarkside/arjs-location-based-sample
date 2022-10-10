@@ -14,6 +14,7 @@ Demo:
 - ~~[Sample by Three.js](https://followthedarkside.github.io/arjs-location-based-sample/three/)~~
 - [Sample by A-Frame](https://followthedarkside.github.io/arjs-location-based-sample/aframe/)
 - [Sample2 by A-Frame](https://followthedarkside.github.io/arjs-location-based-sample/example/aframe_new-location-based/)
+- [Sample3 by A-Frame](https://followthedarkside.github.io/arjs-location-based-sample/example/aframe_simple-location-based/)
 
 Reference:
 - [AR.js Location-Based Tutorial - Develop a Simple Peakfinder App](https://ar-js-org.github.io/AR.js-Docs/location-based-tutorial/)
