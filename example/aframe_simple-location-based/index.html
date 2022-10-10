@@ -22,14 +22,14 @@
 		<img id="tex-image" src="../../resources/Map-COL.jpg">
 	  </a-assets>
 
-      <a-text
+      <!-- <a-text
         value="This content will always face you."
         look-at="[gps-camera]"
         scale="50 50 50"
         gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"
-      ></a-text>
+      ></a-text> -->
 	  <a-entity 
-	    modify-materials gltf-model="#model" play-all-model-animations="" scale="50 50 50" visible="true"
+	    modify-materials gltf-model="#model" play-all-model-animations="" rotation="-90 0 0" scale="50 50 50" visible="true"
 	    look-at="[gps-camera]" gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"
 	  ></a-entity>
       <a-camera gps-camera rotation-reader> </a-camera>
