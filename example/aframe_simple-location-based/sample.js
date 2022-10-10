@@ -4,7 +4,7 @@ window.onload = function() {
 
 AFRAME.registerComponent('modify-materials', {
     init: function () {
-        let tex = new THREE.TextureLoader().load('../resources/Map-COL.jpg');
+        let tex = new THREE.TextureLoader().load('../../resources/Map-COL.jpg');
 
         // Wait for model to load.
         this.el.addEventListener('model-loaded', () => {
