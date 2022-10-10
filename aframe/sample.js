@@ -44,6 +44,7 @@ window.onload = function() {
             console.log("loaded...")
             // Set custom event for gps-entity-place
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+            window.dispatchEvent(new CustomEvent('gps-entity-place-update-positon'))
 
             // Set texture when model loaded
             let arModel = document.getElementById('ar-model')
@@ -62,6 +63,7 @@ window.onload = function() {
 
             // Display distance to AR content
             arModel.addEventListener('gps-entity-place-update-positon', (event) => {
+                console.log("gps-entity-place-update-positon...")
                 document.getElementById('text-dist').innerHTML = 'distance: ${event.detail.distance}m';
             });
         });
