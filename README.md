@@ -2,6 +2,8 @@
 ## Overview
 ![arjs](https://user-images.githubusercontent.com/9309605/194846538-88b04f90-b713-4578-b883-d640509c5443.jpg)
 <br>
+![arjs-location-based-sample](https://user-images.githubusercontent.com/9309605/194881699-5fb506c6-1cf9-4f1d-8452-183d4c4d3bec.gif)
+<br>
 
 This repository contains location based ar samples by [Three.js](https://threejs.org/) and [A-Frame](https://aframe.io/). These use [AR.js](https://github.com/AR-js-org/AR.js).
 <br>
