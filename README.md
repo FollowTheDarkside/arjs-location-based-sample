@@ -1,6 +1,6 @@
 # AR.js Location-Based Sample (WIP)
 ## Overview
-![ARjsImageTrackingSample](https://user-images.githubusercontent.com/9309605/113677338-6ece4600-96f8-11eb-953d-2d1dea781d3b.jpg)
+![arjs](https://user-images.githubusercontent.com/9309605/194846538-88b04f90-b713-4578-b883-d640509c5443.jpg)
 <br>
 
 This repository contains location based ar samples by [Three.js](https://threejs.org/) and [A-Frame](https://aframe.io/). These use [AR.js](https://github.com/AR-js-org/AR.js).
@@ -11,6 +11,10 @@ Demo:
 - ~~[Sample by Three.js](https://followthedarkside.github.io/arjs-location-based-sample/three/)~~
 - [Sample by A-Frame](https://followthedarkside.github.io/arjs-location-based-sample/aframe/)
 - [Sample2 by A-Frame](https://followthedarkside.github.io/arjs-location-based-sample/example/aframe_new-location-based/)
+
+Reference:
+- [AR.js Location-Based Tutorial - Develop a Simple Peakfinder App](https://ar-js-org.github.io/AR.js-Docs/location-based-tutorial/)
+- [AR.js/aframe/examples](https://github.com/AR-js-org/AR.js/tree/master/aframe/examples)
 
 ## License
 MIT
